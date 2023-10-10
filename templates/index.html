@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-  <h1>Строительная компания "Ваш строитель" готова предложить строительные услуги</h1>
-  <ul>
-    <li>
-      <a href='{{ url_for("index") }}'>Главная</a>
-    </li>
-    <li>
-      <a href='{{ url_for("case_costruite") }}'>Построенные дома</a>
-    </li>
-    <li>
-      <a href='{{ url_for("registration") }}'>Регистрация</a>
-    </li>
-    <li>
-      <a href='{{ url_for("login") }}'>Войти</a>
-    </li>
-  </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block page_title %} главная {% endblock %}
+
+{% block h1_title %} Строительная компания "Ваш строитель" готова предложить строительные услуги {% endblock %}
+
+{% block content %}
+
+<p>
+  <a href="#">Строительство домов</a>
+</p>
+<p>
+  <a href="#">Продажа готовых построек</a>
+</p>
+<p>
+  <a href="#">Продажа стройматериалов</a>
+</p>
+<p>
+  <a href="#">Строительство бань</a>
+</p>
+
+{% endblock %}

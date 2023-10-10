@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>case_costruire</title>
-</head>
-<body>
-<h1>Наши построенные объекты</h1>
-  <ul>
-    <li>
-      <a href='{{ url_for("index") }}'>Главная</a>
-    </li>
-    <li>
-      <a href='{{url_for("case_costruite")}}'>Построенные дома</a>
-    </li>
-    <li>
-      <a href='{{url_for("registration") }}'>Регистрация</a>
-    </li>
-    <li>
-      <a href='{{ url_for("login") }}'>Войти</a>
-    </li>
-  </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block page_title %} Построенные объекты {% endblock %}
+
+{% block h1_title %} Наши построенные объекты {% endblock %}
+
+{% block content %}
+
+<p>
+  <a href="#">Одноэтажные дома</a>
+</p>
+<p>
+  <a href="#">Двухэтажные дома</a>
+</p>
+<p>
+  <a href="#">Бани</a>
+</p>
+
+{% endblock %}
