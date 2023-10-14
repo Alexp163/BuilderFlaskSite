@@ -1,22 +1,12 @@
 {% extends "base.html" %}
 
-{% block page_title %} главная {% endblock %}
+{% block page_title %} {{ super() }} - главная {% endblock %}
 
-{% block h1_title %} Строительная компания "Ваш строитель" готова предложить строительные услуги {% endblock %}
+{% block h1_title %} {{ super() }} - Строительная компания "Ваш строитель" готова предложить строительные услуги {% endblock %}
 
 {% block content %}
 
-<p>
-  <a href="#">Строительство домов</a>
-</p>
-<p>
-  <a href="#">Продажа готовых построек</a>
-</p>
-<p>
-  <a href="#">Продажа стройматериалов</a>
-</p>
-<p>
-  <a href="#">Строительство бань</a>
-</p>
+{{ super() }}
+{% include "include/type_service.html" %}
 
 {% endblock %}

@@ -5,3 +5,6 @@
 5. создание блоков на jinja {% block 'название блока' %} {% endblock %}
 6. наследование от главного шаблона {%  extends 'название шаблона'%}
 7. в файле app.py изменение пути к папке templates(template_folder="../templates")
+8. создание в папке templates папки include с малыми страничками(main_menu.html
+    и type_building.html) и подключением их через {{ super() }}
+9. Создание динамической страницы one_object.html для каждой постройки с подключением во view.py

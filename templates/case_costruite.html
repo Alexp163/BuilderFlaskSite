@@ -6,14 +6,7 @@
 
 {% block content %}
 
-<p>
-  <a href="#">Одноэтажные дома</a>
-</p>
-<p>
-  <a href="#">Двухэтажные дома</a>
-</p>
-<p>
-  <a href="#">Бани</a>
-</p>
+{{ super() }}
+{% include "include/type_building.html" %}
 
 {% endblock %}
