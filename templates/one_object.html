@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title_page %} Данные объекта {% endblock %}
+
+{% block h1_title %} {% endblock %}
+
+{% block content %}
+
+{{ super() }}
+<p> Одноэтажный дом площадью 100 кв.метров </p>
+{% include "include/type_building.html" %}
+
+{% endblock %}

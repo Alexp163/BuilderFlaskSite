@@ -24,5 +24,5 @@ def registration():
 
 
 @app.route('/building/1')
-def one_doctor():
+def one_object():
     return render_template('one_object.html')
