@@ -8,3 +8,9 @@
 8. создание в папке templates папки include с малыми страничками(main_menu.html
     и type_building.html) и подключением их через {{ super() }}
 9. Создание динамической страницы one_object.html для каждой постройки с подключением во view.py
+10. Устанавливаем sqlalchemy(pip install flask_sqlalchemy)
+11. pip freeze>requirements.txt
+12. Прописываем путь в папке db.py
+(app.config["SQLALCHEMY_DATABASE_URL"] = "sqlite:///slite.db"
+db = SQLAlchemy(app))
+13. Создание таблицы с параметрами постройки(комментарий в начале файла models.py)
