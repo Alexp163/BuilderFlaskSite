@@ -14,3 +14,4 @@
 (app.config["SQLALCHEMY_DATABASE_URL"] = "sqlite:///slite.db"
 db = SQLAlchemy(app))
 13. Создание таблицы с параметрами постройки(комментарий в начале файла models.py)
+14. Заполнение db_run.py - создание таблицы в БД

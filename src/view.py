@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template
+from db_run import Object
 
 
 @app.route('/')
@@ -9,8 +10,9 @@ def index():
 
 @app.route('/case_costruite')
 def case_costruite():
+    objects = Object.query.all()
     """  Отображает страницу с построенными зданиями """
-    return render_template('/case_costruite.html')
+    return render_template('/case_costruite.html', objects=objects)
 
 
 @app.route('/login')

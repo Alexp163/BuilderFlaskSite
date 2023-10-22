@@ -13,15 +13,15 @@ from db import db
 # db.Column() - создание колонки(дополнительные поля nullable, unique, primary_key)
 # для id всегда задается primary_key=True
 
-class Object:
+class Object(db.Model):
     __tablename__ = "object"
 
     id = db.Column(db.Integer(), primary_key=True) # идентификационный номер
-    name_object = db.Column(db.String()) # название объекта
+    name_object = db.Column(db.String(50)) # название объекта
 
     type_object = db.Column(db.String(50)) # тип объекта
     material = db.Column(db.String(50)) # материал изготовления
     date_manufacture = db.Column(db.String(10)) # дата изготовления
 
-    price = db.Column(db.String(10)) # стоимость объекта
+    price = db.Column(db.Float()) # стоимость объекта
     location = db.Column(db.String(50)) # расположение объекта
