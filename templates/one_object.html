@@ -2,12 +2,21 @@
 
 {% block title_page %} Данные объекта {% endblock %}
 
-{% block h1_title %} {% endblock %}
+{% block h1_title %} Все данные объекта {% endblock %}
 
 {% block content %}
 
 {{ super() }}
-<p> Одноэтажный дом площадью 100 кв.метров </p>
-{% include "include/type_building.html" %}
+<p> <p> Название объекта {{ object.name_object }} </p>
+    <p>Тип объекта {{ object.type_object }} </p>
+    <p>Материал изготовления {{object.material}} </p>
+    <p>Сроки изготовления {{ object.date_manufacture }} </p>
+    <p> Стоимость объекта {{object.price}} </p>
+    <p> Расположение объекта {{object.location}} </p>
+</p>
+
+
+{% include "include/menu_object.html" %}
 
 {% endblock %}
+

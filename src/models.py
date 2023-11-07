@@ -25,3 +25,24 @@ class Object(db.Model):
 
     price = db.Column(db.Float()) # стоимость объекта
     location = db.Column(db.String(50)) # расположение объекта
+
+
+class Service(db.Model):
+    __tablename__ = 'service'
+    id = db.Column(db.Integer(), primary_key=True) # идентификационный номер
+    name_service = db.Column(db.Text()) # название услуги
+
+    department_name = db.Column(db.String(50)) # наименование отдела исполнителя
+    deadlines_implementation = db.Column(db.String(50))# сроки выполнения услуги
+
+    price = db.Column(db.Float())# стоимость работ
+    department_contact_information = db.Column(db.Text()) # контакты отдела-исполнителя
+
+
+class ServiceGroup(db.Model):
+    __tablename__ = "service_group"
+    id = db.Column(db.Integer(), primary_key=True)
+
+    name = db.Column(db.String(100))  # название группы
+    description = db.Column(db.Text())  # описание группы
+    # создать руководителя группы
