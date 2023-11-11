@@ -21,20 +21,6 @@ with app.app_context():
 
 
 with app.app_context():
-    service = Service(name_service = "Строительство домов",
-                      department_name = "отдел строительства",
-                      deadlines_implementation = "6 месяцев", price = "8000000.00",
-                      department_contact_information = "Самара, Луговая, 24, тел. +7929987876")
-    db.session.add(service)
-    service1 = Service(name_service = "Продажа домов с оформлением документации",
-                      department_name = "Отдел продаж",
-                      deadlines_implementation = "1 месяц", price = "10000.00",
-                      department_contact_information = "Самара, Ленина , 33, тел. +7929987876")
-    db.session.add(service1)
-    db.session.commit()
-
-
-with app.app_context():
     group1 = ServiceGroup(name="Отдел строительства",
                           description="здесь будет описана группа")
     group2 = ServiceGroup(name="Административно правовой отдел",
