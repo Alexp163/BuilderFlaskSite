@@ -7,6 +7,9 @@
 {% block content %}
 
 {{ super() }}
-<p>Строительная компания "Ваш строитель" готова предложить вам свои услуги</p>
+
+{% include "include/type_service.html" %}
+{% include "include/services.html" %}
+
 
 {% endblock %}

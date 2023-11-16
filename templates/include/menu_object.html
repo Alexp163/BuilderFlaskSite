@@ -1,0 +1,12 @@
+{% for o in objects %}
+
+<p>
+    <a href="{{ url_for('one_object', object_id=o.id)}}">
+         {{ o.name_object }}
+    </a>
+    <p> {{ o.type_object }}
+        {{ o.material }} {{ o.date_manufacture }} {{ o.price }}
+        {{ o.location }}</p>
+</p>
+{% endfor %}
+

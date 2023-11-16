@@ -1,0 +1,10 @@
+{% for s in service %}
+
+<p>
+    Название услуги : <a href="#"> {{ s.name_service }} </a>
+    <div> Наименование ответственной организации {{ s.department_name  }} сроки выполнения заказ: {{ s.deadlines_implementation }}
+    Цена заказа: {{ s.price }} Контактные данные организации: {{ s.department_contact_information }} </div>
+</p>
+
+{% endfor %}
+

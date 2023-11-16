@@ -51,11 +51,6 @@ class Service(db.Model):
                 f"сроки исполнения: {self.deadlines_implementation}, стоимость услуги: {self.price},"
                 f"контакты исполнителя: {self.department_contact_information}>")
 
-    def __str__(self):
-        return (
-            f"< Работает функция str() Название услуги: {self.name_service}, отдел исполнителя: {self.department_name}, "
-            f"сроки исполнения: {self.deadlines_implementation}, стоимость услуги: {self.price},"
-            f"контакты исполнителя: {self.department_contact_information}>")
 
 class ServiceGroup(db.Model):
     __tablename__ = "service_group"

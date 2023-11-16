@@ -1,11 +1,12 @@
 from app import app
 from flask import render_template
-from db_run import Object, Service
+from db_run import Object, Service, ServiceGroup
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    service_groups = ServiceGroup.query.all()
+    return render_template('index.html', service_groups=service_groups)
 
 
 @app.route('/objects')
@@ -35,6 +36,15 @@ def one_object(object_id):
 def our_service():
     service = Service.query.all()
     return render_template('our_service.html', service=service)
+
+
+@app.route('/service_group/<int:service_group_id>')
+def service_group(service_group_id):
+    service_group = ServiceGroup.query.get(service_group_id)
+    service_groups = ServiceGroup.query.all()
+    service = Service.query.filter_by(service_group_id=service_group_id).all()
+    return render_template("service_group.html", service_group=service_group,
+                           service=service, service_groups=service_groups)
 
 
 

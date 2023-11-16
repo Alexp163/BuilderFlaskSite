@@ -1,13 +1,7 @@
+{% for sg in service_groups %}
 
 <p>
-    <a href="#">Строительство домов</a>
+    Тип сервиса: <a href="{{ url_for('service_group', service_group_id=sg.id)}}"> {{ sg.name}} </a>
 </p>
-<p>
-    <a href="#">Продажа готовых построек</a>
-</p>
-<p>
-    <a href="#">Продажа стройматериалов</a>
-</p>
-<p>
-    <a href="#">Продажа земельных участков</a>
-</p>
+
+{% endfor %}
