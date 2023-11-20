@@ -1,6 +1,6 @@
-from app import app
+from src.app import app
 from flask import render_template
-from db_run import Object, Service, ServiceGroup
+from src.models import Object, Service, ServiceGroup
 
 
 @app.route('/')

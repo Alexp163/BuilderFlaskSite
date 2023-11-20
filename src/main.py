@@ -1,5 +1,7 @@
-from app import app
+from src.app import app
 import view
+import admin
+
 
 
 def main():
