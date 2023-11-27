@@ -1,5 +1,5 @@
-from src.models import Object, Service, ServiceGroup
-from src.app import app
+from models import Object, Service, ServiceGroup
+from app import app
 
 
 with app.app_context():
