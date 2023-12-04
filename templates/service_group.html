@@ -6,7 +6,11 @@
 
 {%  block content %}
 {{ super() }}
+<p>
+    Ответственный за отдел: <a href="{{ url_for('one_object', object_id=service_group.object.id) }}">
 
+</a>
+</p>
 {% include "include/type_service.html" %}
 {% include "include/services.html" %}
 
