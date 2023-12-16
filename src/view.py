@@ -1,7 +1,9 @@
+from db import db
 from app import app
-from flask import render_template
-from models import Object, Service, ServiceGroup
+from flask import render_template, flash, request
+from models import Object, Service, ServiceGroup, User
 from forms import LoginForm, RegisterForm
+from werkzeug.security import generate_password_hash
 
 
 @app.route('/')
@@ -17,15 +19,38 @@ def objects():
     return render_template('/objects.html', objects=objects)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET','POST'])
 def login():
     form = LoginForm()
+
+    if form.validate_on_submit():
+        print("Кнопка нажата!!!")
+        flash("Кнопка нажата")
+    else:
+        print("Идите вы все в жопу")
+        flash("Вы не нажали кнопку")
     return render_template('login.html', form=form)
 
 
-@app.route('/registration')
+@app.route('/registration', methods=['GET','POST'])
 def registration():
     form = RegisterForm()
+    if request.method=='POST' and form.validate():
+        print("Кнопка нажата!!!")
+        flash("Кнопка нажата")
+        email = form.email.data
+        pass_1 = form.password_1.data
+        pass_2 = form.password_2.data
+        if pass_1 == pass_2:
+            if len(User.query.filter_by(email=email).all())==0:
+                user = User(email=email, password_hash=generate_password_hash(pass_1))
+                db.session.add(user)
+                db.session.commit()
+                flash("Регистрация прошла успешно!!!")
+            else:
+                flash("Вы уже проходили регистрацию!")
+        else:
+            flash("Пароли не совпадают!")
     return render_template('registration.html', form=form)
 
 
