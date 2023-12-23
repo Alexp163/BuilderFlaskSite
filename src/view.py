@@ -1,10 +1,11 @@
-from db import db
-from app import app
-from flask import render_template, flash, request
-from models import Object, Service, ServiceGroup, User
-from forms import LoginForm, RegisterForm
+from flask import render_template, flash, request, redirect, url_for
+from flask_login import login_user, login_required, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user
+
+from app import app
+from db import db
+from forms import LoginForm, RegisterForm
+from models import Object, Service, ServiceGroup, User
 
 
 @app.route('/')
@@ -14,6 +15,7 @@ def index():
 
 
 @app.route('/objects')
+@login_required
 def objects():
     objects = Object.query.all()
     """  Отображает страницу с построенными зданиями """
@@ -66,12 +68,14 @@ def one_object(object_id):
 
 
 @app.route('/our_service')
+@login_required
 def our_service():
     service = Service.query.all()
     return render_template('our_service.html', service=service)
 
 
 @app.route('/service_group/<int:service_group_id>')
+@login_required
 def service_group(service_group_id):
     service_group = ServiceGroup.query.get(service_group_id)
     service_groups = ServiceGroup.query.all()
@@ -80,4 +84,23 @@ def service_group(service_group_id):
                            service=service, service_groups=service_groups)
 
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for("index"))
 
+
+@app.errorhandler(401)
+def custom_401(error):
+    return render_template('error401.html')
+
+
+@app.errorhandler(404)
+def custom_404(error):
+    return render_template('error404.html')
+
+
+@app.errorhandler(500)
+def custom_500(error):
+    return render_template('error500.html')
